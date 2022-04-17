@@ -63,7 +63,7 @@ hqreg <- function (X, y, method = c("huber", "quantile", "ls"), gamma = IQR(y)/1
     nv <- fit[[5]]
     # Eliminate saturated lambda values
     ind <- !is.na(iter)
-    beta <- beta[, ind]
+    beta <- as.matrix(beta[, ind])
     iter <- iter[ind]
     lambda <- lambda[ind]
   } else {
@@ -88,7 +88,7 @@ hqreg <- function (X, y, method = c("huber", "quantile", "ls"), gamma = IQR(y)/1
   }
   
   # Intercept
-  beta[1,] <- as.matrix(beta)[1,] + shift
+  beta[1,] <- beta[1,] + shift
   
   # Names
   vnames <- colnames(X)
