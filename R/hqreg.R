@@ -88,7 +88,7 @@ hqreg <- function (X, y, method = c("huber", "quantile", "ls"), gamma = IQR(y)/1
   }
   
   # Intercept
-  beta[1,] <- beta[1,] + shift
+  beta[1,] <- as.matrix(beta)[1,] + shift
   
   # Names
   vnames <- colnames(X)
