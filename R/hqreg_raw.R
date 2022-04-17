@@ -64,7 +64,7 @@ hqreg_raw <- function (X, y, method = c("huber", "quantile", "ls"), gamma = IQR(
     nv <- fit[[5]]
     # Eliminate saturated lambda values
     ind <- !is.na(iter)
-    beta <- beta[, ind]
+    beta <- as.matrix(beta[, ind])
     iter <- iter[ind]
     lambda <- lambda[ind]
   } else {
