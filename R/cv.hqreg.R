@@ -47,7 +47,7 @@ cv.hqreg <- function(X, y, ..., FUN = c("hqreg", "hqreg_raw"), ncores = 1, nfold
   
   ## Eliminate saturated lambda values
   ind <- which(apply(is.finite(E), 2, all))
-  E <- E[,ind]
+  E <- as.matrix(E[,ind])
   lambda <- cv.args$lambda[ind]
   
   ## Results
