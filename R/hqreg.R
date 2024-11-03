@@ -80,7 +80,7 @@ hqreg <- function (X, y, method = c("huber", "quantile", "ls"), gamma = IQR(y)/1
                 as.double(eps), as.double(lambda.min), as.integer(nlambda), as.integer(n), as.integer(p), as.integer(ppflag),
                 1L, as.integer(max.iter), as.integer(user), as.integer(message))      
     }
-    beta <- matrix(fit[[1]],nrow = p)
+    beta <- as.matrix(matrix(fit[[1]],nrow = p))
     iter <- fit[[2]]
     lambda <- fit[[3]]
     saturated <- 0
